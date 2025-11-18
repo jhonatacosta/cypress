@@ -18,7 +18,7 @@ cypress/
   e2e/
     login.spec.cy.js
   fixtures/
-    example.json
+    userData.json
   support/
     commands.js
     e2e.js
@@ -38,15 +38,22 @@ README.md
 ## 🧩 Código do Teste
 
 ### 🔸 Seletores Utilizados
+```
+fixtures/
+    userData.json
+```
+  ```json
+{    
+  "userSuccess": {
+    "username": "admin",
+    "password": "admin123"
+  },
 
-```js
-const selectorsList = {
-  usernameInput: '#app [name="username"]',
-  passwordInput: '#app [name="password"]',
-  submitButton: '#app [type="submit"]',
-  alertBox: '#app div.oxd-alert',
-  dashboardHeader: '#app .oxd-topbar-header-breadcrumb-module'
-};
+  "userFail": {
+    "username": "test",
+    "password": "test123"
+  }
+
 ```
 
 ## ✔️ 1. Login – Sucesso
@@ -55,8 +62,8 @@ const selectorsList = {
 it('Login - Success', () => {
   cy.visit(pageUrl)
 
-  cy.get(selectorsList.usernameInput).type("admin");
-  cy.get(selectorsList.passwordInput).type("admin123");
+  cy.get(selectorsList.usernameInput).type(userData.userSuccess.username);
+  cy.get(selectorsList.passwordInput).type(userData.userSuccess.password);
   cy.get(selectorsList.submitButton).click()
 
   cy.location('pathname').should("equal", '/web/index.php/dashboard/index')
@@ -70,8 +77,8 @@ it('Login - Success', () => {
 it('Login - Fail', () => {
   cy.visit(pageUrl)
 
-  cy.get(selectorsList.usernameInput).type("test");
-  cy.get(selectorsList.passwordInput).type("test123");
+  cy.get(selectorsList.usernameInput).type(userData.userFail.username);
+  cy.get(selectorsList.passwordInput).type(userData.userFail.password);
   cy.get(selectorsList.submitButton).click()
   cy.get(selectorsList.alertBox);
 })
