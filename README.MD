@@ -11,13 +11,6 @@ Os cenários verificam:
 - ✔️ Login com credenciais corretas  
 - ❌ Login com credenciais incorretas  
 
-## 📸 Demonstração (Screenshots)
-
-> *Opcional — posso gerar screenshots a partir do Cypress se você quiser.*
-
-- Login bem-sucedido → Dashboard carregado  
-- Login inválido → Alerta de erro visível  
-
 ## 📁 Estrutura do Projeto
 
 ```
