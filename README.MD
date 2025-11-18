@@ -16,8 +16,15 @@ Os cenários verificam:
 ```
 cypress/
   e2e/
-    orangehrm.cy.js
+    login.spec.cy.js
+  fixtures/
+    example.json
+  support/
+    commands.js
+    e2e.js
+.gitignore
 cypress.config.js
+package-lock.json
 package.json
 README.md
 ```
